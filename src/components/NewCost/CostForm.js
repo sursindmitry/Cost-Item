@@ -5,7 +5,7 @@ const CostForm = (props) => {
     const [inputName,setInputName] = useState("");
     const [inputAmount,setInputAmount] = useState("");
     const [inputDate,setInputDate] = useState("");
-    useState({})
+
     const nameChangeHandler = (event) =>{
         setInputName(event.target.value)
     }
@@ -21,9 +21,9 @@ const CostForm = (props) => {
     const submitHandler = (event) =>{
         event.preventDefault()
         const costData ={
-            name: inputName,
+            description: inputName,
             amount: inputAmount,
-            date: inputDate
+            date: new Date(inputDate)
         };
         props.onSaveCostData(costData);
         setInputName('');
@@ -42,7 +42,7 @@ const CostForm = (props) => {
             </div>
             <div className="new-cost__control">
                 <label>Сумма</label>
-                <input onChange={dateChangeHandler} value={inputDate} type='date' min='2019-01-01' step='2023-12-31'/>
+                <input onChange={dateChangeHandler} value={inputDate} type='date' min="2019-01-01" step="2023-12-31"/>
             </div>
             <div className='new-cost__actions'>
                 <button type='submit'>Добавить</button>

@@ -33,7 +33,6 @@ const App=()=> {
 
   return (
     <div>
-      <h1>Начнём изучение React</h1>
         <NewCost onAddCost={addCostHandler}/>
         <Costs costs={costs}/>
 
